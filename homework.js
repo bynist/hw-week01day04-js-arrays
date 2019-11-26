@@ -29,21 +29,22 @@ const Ava =function (group){
          for (i=0;i<group.length;i++){
            sum += group[i]
          } 
-        console.log(`The Avarge of ${group} is ${sum/group.length}\n `)
+        return`The Avarge of ${group} is ${sum/group.length}\n `
 }
 
-Ava([8, 2, 2, 4])
+console.log(Ava([8, 2, 2, 4]))
 
    
 //A4)
 function reverseS(word){
     let revWord = word.split("")
     revWord.reverse()      
-    console.log(`the reverse of ${word} is: `+ revWord.join(""))
+
+    return`the reverse of ${word} is: `+ revWord.join("")
  
     }
 
-reverseS("caterpillar")
+console.log( reverseS("caterpillar"))
     
 //A5)
 
@@ -53,35 +54,76 @@ console.log(`\n`+ dash.join(" - "))
 addDashes(['test1', 'test2', 'test3'])
 //A6)
 function countUpAndDown (max){
-    let count = 0
-     for (j=1 ; j<=max; j++){
-              count=j 
-              console.log(count)
-                // think about 
 
-
-        }
+        let count = [] //empty array
+        for (j=1 ; j< max ; j++){
+                count.push(j) 
+             }
+                
+             for (j=max ; j>=1 ; j--){
+                count.push(j) 
+            }  
+             return `Updown Numbers: ${count}`
 }
-countUpAndDown(3)
+ console.log(countUpAndDown(3))
 //A7)
-// function wordsWithA(searchA){
-//     searchA.forEach(function(item,index,searchA){
-//         let word = search("a", searchA);
-//         console.log(`hello ${word}at ${index}in ${searchA}`)
-//       })
-// }
-// wordsWithA(['cat', 'rabbit', 'dog', 'frog'])
+
+function wordsWithA(searchA){
+    let arr =[]
+    for (let i = 0; i<searchA.length;i++){
+    if (searchA[i].indexOf('a')>=0 ){
+        arr.push(searchA[i])
+       
+    }}
+    return`the words have "A" are : ${arr}` 
+    }
+
+ 
+
+console.log(wordsWithA(['m ','la','ka']))
 
 //A8)
-function largestEvenNumber(largest){
-    let result
-    let len = largest.length
-for (i=0 ; i<largest.length;i++)
-if (largest[i] % 2 ==0 ){
-    result = largest[i]
-    console.log(result)
-    floor(result)
-    console.log(result)
-    }//return result
+function largestEvenNumber (largest){
+    let arr=[]
+   
+for (i=0 ; i<largest.length;i++){
+  if (largest[i] % 2 == 0 ){
+       arr.push(largest[i])
+        
+        }
+       
+    }return`the even Number ${arr}`
+    }
+
+console.log( largestEvenNumber([1,2,3,10,4,7,0]))
+//A9)
+const wordsWithLetter=function (letter,series) {
+
+    let arr=[]
+    //let x=letter
+    for (let i = 0; i<series.length;i++){
+        if (series[i].indexOf(letter)>=0 ){
+            arr.push(series[i])
+        }
+    }
+        return`the words have ${letter} are : ${arr}`    
+
 }
-largestEvenNumber([1,2,3,10,4,7,0])
+
+console.log(wordsWithLetter("g", ['cat', 'rabbit', 'dog', 'frog']))
+
+//A10
+let longestWord = function (longw) {
+    let x =" "
+  arr=longw.split(" ")
+//     console.log(arr)
+//     x.sort()
+   for (let i =0 ; i<arr.length;i++){
+    if (arr[i].length > x.length) {
+        x = arr[i];
+    }
+}
+return `the largest word is ${x}`
+}
+
+console.log(longestWord("The cat in the house"))
